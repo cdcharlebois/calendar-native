@@ -1,0 +1,30 @@
+{
+  "name": "calendar",
+  "widgetName": "Calendar",
+  "version": "1.0.0",
+  "description": "A native calendar widget",
+  "copyright": "© Mendix Technology BV 2022. All rights reserved.",
+  "author": "Conner Charlebois",
+  "engines": {
+    "node": ">=16"
+  },
+  "license": "Apache-2.0",
+  "config": {
+    "projectPath": "/Volumes/[C] Windows 10/MxProjects/NativeKitchenSink-main/"
+  },
+  "packagePath": "mendix",
+  "scripts": {
+    "start": "pluggable-widgets-tools start:native",
+    "build": "pluggable-widgets-tools build:native",
+    "lint": "pluggable-widgets-tools lint",
+    "lint:fix": "pluggable-widgets-tools lint:fix",
+    "prerelease": "npm run lint",
+    "release": "pluggable-widgets-tools release:native"
+  },
+  "devDependencies": {
+    "@mendix/pluggable-widgets-tools": "^9.0.0"
+  },
+  "dependencies": {
+    "react-native-calendars": "^1.1292.0"
+  }
+}

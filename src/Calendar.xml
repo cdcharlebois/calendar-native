@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="mendix.calendar.Calendar" pluginWidget="true" needsEntityContext="true" offlineCapable="true"
+        supportedPlatform="Native"
+        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+    <name>Calendar</name>
+    <description>A native calendar widget</description>
+    <icon/>
+    <properties>
+        <propertyGroup caption="General">
+            <property key="selectedDate" type="attribute" required="true">
+              <caption>Selected Date</caption>
+              <description>This attribute will be updated when the user makes a selection</description>
+              <attributeTypes>
+                <attributeType name="DateTime" />
+              </attributeTypes>
+            </property>
+            <property key="useCustomDay" type="boolean" defaultValue="false">
+              <caption>Use Custom Day Component</caption>
+              <description>This allows you to render your own content (requires a datasource)</description>
+            </property>
+            <property key="events" type="datasource" required="false" isList="true">
+              <caption>Event List</caption>
+              <description></description>
+            </property>
+            <property key="colorExpr" type="expression" defaultValue="" dataSource="events">
+              <caption>Dot Color</caption>
+              <description></description>
+              <returnType type="String" />
+            </property>
+            <property key="dateAttr" type="attribute" required="false" dataSource="events">
+              <caption>Date</caption>
+              <description></description>
+              <attributeTypes>
+                <attributeType name="DateTime" />
+              </attributeTypes>
+            </property>
+        </propertyGroup>
+    </properties>
+</widget>
