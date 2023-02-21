@@ -1,5 +1,5 @@
 import { createElement, useState, useEffect } from "react";
-import { Image, View } from "react-native";
+import { Image, View, TouchableOpacity, Text } from "react-native";
 
 import { Calendar as CalWidget, LocaleConfig } from "react-native-calendars/src/index.js";
 
@@ -67,7 +67,8 @@ export function Calendar({
     dayNames,
     dayNamesShort,
     today,
-    style
+    style,
+    customDayWidgets
 }) {
     // eslint-disable-next-line dot-notation
     if (
@@ -144,7 +145,8 @@ export function Calendar({
             const objectDate = new Date(dateAttr.get(day).value);
             days[getDateString(objectDate)] = {
                 ...defaultDot,
-                dotColor: colorExpr.get(day).value
+                dotColor: colorExpr.get(day).value,
+                itemRef: day
             };
         });
 
@@ -177,6 +179,21 @@ export function Calendar({
     ) {
         return null;
     }
+
+    const renderCustomDay = ({ marking, state, date }) => {
+        if (events.status !== "available") return null;
+        if (marking && marking.itemRef) {
+            console.warn("marking", marking);
+        }
+        // TODO: render the mendix content inline with the default calendar rendering
+        return marking && marking.itemRef ? (
+            customDayWidgets.get(marking.itemRef)
+        ) : (
+            <TouchableOpacity>
+                <Text>foo</Text>
+            </TouchableOpacity>
+        );
+    };
 
     return (
         <CalWidget
@@ -212,7 +229,7 @@ export function Calendar({
             }}
             // eslint-disable-next-line prettier/prettier
             disableArrowRight={currentMonth >= 0}
-            dayComponent={useCustomDay ? CustomDay : undefined}
+            dayComponent={useCustomDay ? renderCustomDay : CustomDay}
             firstDay={1}
         />
     );

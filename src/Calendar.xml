@@ -26,6 +26,10 @@
               <caption>Use Custom Day Component</caption>
               <description>This allows you to render your own content (requires a datasource)</description>
             </property>
+            <property key="customDayWidgets" type="widgets" required="false" dataSource="events">
+              <caption>Day Content</caption>
+              <description></description>
+            </property>
             <property key="events" type="datasource" required="false" isList="true">
               <caption>Event List</caption>
               <description></description>
