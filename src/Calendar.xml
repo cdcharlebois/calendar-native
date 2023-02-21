@@ -4,7 +4,7 @@
         xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
     <name>Calendar</name>
-    <description>A native calendar widget</description>
+    <description>A native calendar widget.</description>
     <icon/>
     <properties>
         <propertyGroup caption="General">
@@ -13,6 +13,13 @@
               <description>This attribute will be updated when the user makes a selection</description>
               <attributeTypes>
                 <attributeType name="DateTime" />
+              </attributeTypes>
+            </property>
+            <property key="monthsFromPresentAttr" type="attribute" required="false">
+              <caption>Month Visible</caption>
+              <description>The number of months between the month being viewed and the current month.</description>
+              <attributeTypes>
+                <attributeType name="Integer" />
               </attributeTypes>
             </property>
             <property key="useCustomDay" type="boolean" defaultValue="false">
@@ -34,6 +41,44 @@
               <attributeTypes>
                 <attributeType name="DateTime" />
               </attributeTypes>
+            </property>
+        </propertyGroup>
+        <propertyGroup caption="Translations">
+            <property key="monthNames" type="textTemplate" required="true">
+              <caption>Month Names</caption>
+              <description>A comma separated list of the names of each month in chronological order. Ex. Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre</description>
+            </property>
+            <property key="monthNamesShort" type="textTemplate" required="true">
+              <caption>Month Names Shorted</caption>
+              <description>A comma separated list of the shortened names of each month in chronological order. Ex. Janv., Févr., Mars, Avril, Mai, Juin, Juil., Août, Sept., Oct., Nov., Déc.</description>
+            </property>
+            <property key="dayNames" type="textTemplate" required="true">
+              <caption>Day Names</caption>
+              <description>A comma separated list of the names of each day in chronological order. Ex. Dimanche, Lundi, Mardi, Mercredi, Jeudi, Vendredi, Samedi</description>
+            </property>
+            <property key="dayNamesShort" type="textTemplate" required="true">
+              <caption>Day Names Shortened</caption>
+              <description>A comma separated list of the shortened names of each month in chronological order. Ex. Dim., Lun., Mar., Mer., Jeu., Ven., Sam.</description>
+            </property>
+            <property key="today" type="textTemplate" required="true">
+              <caption>Today</caption>
+              <description>The word for today. Ex. Aujourd 'hui</description>
+            </property>
+        </propertyGroup>
+        <propertyGroup caption="Images">
+            <property key="rightImage" type="image" required="true">
+              <caption>Arrow Image Right</caption>
+              <description></description>
+            </property>
+            <property key="leftImage" type="image" required="true">
+              <caption>Arrow Image Left</caption>
+              <description></description>
+            </property>
+        </propertyGroup>
+        <propertyGroup caption="Actions">
+              <property key="onPress" type="action" required="false">
+                  <caption>On Change Action</caption>
+                  <description>Action to be performed when a date is pressed or month is changed from the calendar.</description>
             </property>
         </propertyGroup>
     </properties>
